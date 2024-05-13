@@ -4,6 +4,7 @@
   --color-base-bg-top: hsl(292, 42%, 14%); /* Dark purple */
   --color-grayish-purple: hsl(292, 16%, 49%); /* Grayish purple */
   --space: 1.5rem;
+  --border-radius: 0.7rem;
 }
 
 /* --- GLOBAL RESET --- */
@@ -37,12 +38,10 @@ p {
   background-color: var(--color-card-bg);
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   justify-content: center;
-  min-height: 60vh;
   max-width: 45vw;
-  border-radius: 0.7rem;
-  margin-top: auto;
+  border-radius: var(--border-radius);
+  margin-top: auto; /* Push the container to the center */
   padding: var(--space);
 }
 
@@ -53,56 +52,24 @@ header {
 }
 
 header img {
-  margin-right: 10px; /* Adjust the spacing between the image and the heading as needed */
-}
-
-.faq-item .question {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 0;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-}
-
-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-header img {
-  width: 24px;
-  height: 24px;
-}
-
-header h1 {
-  font-size: 24px;
-  font-weight: bold;
-  margin: 0;
+  margin-right: 0.625rem; /* Adjust the spacing between the image and the heading as needed */
 }
 
 .faq-item {
-  border-radius: 8px;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0);
-  margin-bottom: 10px;
-  width: 400px;
-  /* padding: 10px 20px; */
-  border: 1px solid #eee;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: var(--space);
+  border-radius: var(--border-radius);
+  width: 100%;
+  /* padding: 10px 20px; */
+  border-bottom: 0.063rem solid #eee;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0);
+}
+
+.faq-item:last-child {
+  margin-bottom: 0;
+  border-bottom: none;
 }
 
 .faq-item .questions {
@@ -122,15 +89,20 @@ header h1 {
 }
 
 .faq-item .icon {
-  width: 18px;
-  height: 18px;
+  margin-left: 1rem;
+  width: 1.125rem;
+  height: 1.125rem;
   transition: transform 0.2s;
+}
+
+.faq-item.open .icon {
+  transform: rotate(45deg);
 }
 
 /* --- FOOTER --- */
 
 .footer {
-  margin-top: auto;
+  margin-top: auto; /* Push the footer to the bottom */
   text-align: center;
 }
 
@@ -141,4 +113,10 @@ header h1 {
 
 .attribution a {
   color: hsl(228, 45%, 44%);
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    max-width: 90vw;
+  }
 }
