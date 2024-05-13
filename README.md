@@ -48,7 +48,10 @@ Later
 
 ### What I learned
 
-Later
+Speak about:
+
+- using flex to align title + image stars
+- display "none" to hide the answers
 
 ### Continued development
 
