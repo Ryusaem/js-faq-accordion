@@ -55,14 +55,22 @@ header img {
   margin-right: 0.625rem; /* Adjust the spacing between the image and the heading as needed */
 }
 
+.box {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  background-color: var(--color-card-bg);
+}
+
 .faq-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   margin-bottom: var(--space);
   border-radius: var(--border-radius);
   width: 100%;
-  /* padding: 10px 20px; */
   border-bottom: 0.063rem solid #eee;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0);
 }
@@ -74,7 +82,7 @@ header img {
 
 .faq-item .questions {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
   padding: 10px 0;
   cursor: pointer;
@@ -83,9 +91,15 @@ header img {
 
 .faq-item .answers {
   display: none;
-  padding: 10px 0;
+  padding-top: 0.5rem;
   border-top: 1px solid #eee;
   color: #555;
+}
+
+.faq-item .answers.active {
+  display: block;
+  font-size: 0.8rem;
+  line-height: 1.8;
 }
 
 .faq-item .icon {
@@ -95,12 +109,8 @@ header img {
   transition: transform 0.2s;
 }
 
-.faq-item.open .icon {
-  transform: rotate(45deg);
-}
-
-.faq-item .icon .active {
-  display: block;
+.faq-item .icon.active {
+  transform: scale(1.1);
 }
 
 /* --- FOOTER --- */
@@ -111,7 +121,7 @@ header img {
 }
 
 .attribution {
-  font-size: 11px;
+  font-size: 0.688rem; /* 12px */
   margin-bottom: 0.5rem;
 }
 
@@ -119,8 +129,35 @@ header img {
   color: hsl(228, 45%, 44%);
 }
 
+/* --- MEDIA QUERY Responsive */
+
 @media screen and (max-width: 768px) {
+  body {
+    background-image: url("/assets/images/background-pattern-mobile.svg");
+  }
+
   .container {
-    max-width: 90vw;
+    max-width: 95vw;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .faq-item .answers.active {
+    font-size: 0.9rem;
+    line-height: 1.8;
+  }
+
+  .faq-item .icon {
+    margin-left: 1.5rem;
+    width: 1.7rem;
+    height: 1.7rem;
+    transition: transform 0.2s;
+  }
+
+  footer,
+  footer p {
+    font-size: 1rem;
   }
 }

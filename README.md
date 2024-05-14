@@ -52,10 +52,11 @@ Speak about:
 
 - using flex to align title + image stars
 - display "none" to hide the answers
+- using flex-wrap to "unhide" the 'answers'
 
 ### Continued development
 
-Later
+- Training more on animation.
 
 ### Useful resources
 
