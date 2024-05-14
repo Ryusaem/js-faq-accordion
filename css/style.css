@@ -99,6 +99,10 @@ header img {
   transform: rotate(45deg);
 }
 
+.faq-item .icon .active {
+  display: block;
+}
+
 /* --- FOOTER --- */
 
 .footer {
