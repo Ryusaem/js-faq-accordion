@@ -48,13 +48,6 @@ Later
 
 ### What I learned
 
-Speak about:
-
-- We need to implement a way to use the keyboard to display or hide any answers.
-- box shadow
-
---
-
 1. I learn an efficient way to hide any content without them taking any place which is the "display: hide".
    We use it to hide all the answers, and we choose to display them only if the user is actively clicking on the "+" icons.
    I also think there is another way to hide stuff but they are going to take place "visibility:hidden;"
@@ -97,7 +90,7 @@ icons.forEach((icon, i) => {
 
 --
 
-4. By using "flex-wrap: wrap;" we managed to display the "asnwer" at the bottom of both the "questions" and the "icons". This is exactly the result we wanted, because otherwise it did
+4. By using "flex-wrap: wrap;" we managed to display the "asnwer" at the bottom of both the "questions" and the "icons". This is exactly the result we wanted, because otherwise it did it crumble. I have to say I was a bit lucky on that found, because I had to try a lot of different result to get it right, and I'm happy with it.
 
 ![without flex-wrap](/assets/images/without-flex-wrap.png)
 ![with flex-wrap](/assets/images/with-flex-wrap.png)
@@ -109,6 +102,46 @@ icons.forEach((icon, i) => {
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
+}
+```
+
+5. "box-shadow" is also a fascinating property that allow us to add a shadow effect on our box. Learning all of the different property it have is not necessary, but always great to know and understand.
+
+```css
+box-shadow: none|horizontal-offset vertical-offset blur spread color
+  |inset|initial|inherit;
+```
+
+6. "tabindex" is an html attribute that allow us to use keyboard on element (like <div>).
+   Naturally the <div> and <span> does not allow us to focus keyboard on them, so we need to use JS to add the attribute "tabindex" to each questions.
+   In our case, we need to use the keyboard to "Up" and "Down" to hide or reveal the question.
+   To know if the user is pressing either "Up" or "down", we could listen to each event occuring when we press a "key" when we focus the "question" area. The event that interest us is "e.key" and the values are "ArrowDown" & "ArrowUp".
+   I didn't wanted to implement that function, but I did it eventually because I wanted to test my boudaries and know if I could achieve such feature even though I didn't train on it ... and it was a success.
+
+```js
+question.setAttribute("tabindex", 0); // We add a tabindex to make the question clickable (for accessibility purposes
+```
+
+```js
+question.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+  }
+});
+```
+
+7. Give us the ability to focus on element each time the mouse is hovering so when we hover to a box, this little event listener is going to use a blue border box to highligh the item.
+
+```js
+question.addEventListener("mouseenter", () => {
+  question.focus();
+});
+```
+
+8. Each browser style when we use the "mouseenter" as an even with "question.focus"...The style is a blue border each time we hover to a new item. To remove it we have to use the pseudo class ":focus" and use the "outline" property as "none".
+
+```css
+.questions:focus {
+  outline: none; /* Custom color */
 }
 ```
 
@@ -128,7 +161,3 @@ icons.forEach((icon, i) => {
 - Twitter - [@RyuBraveheart](https://twitter.com/RyuBraveheart)
 - Frontend Mentor - [@Ryusaem](https://www.frontendmentor.io/profile/Ryusaem)
 - CodeWars - [@Ryusaem](https://www.codewars.com/users/Ryusaem)
-
-```
-
-```

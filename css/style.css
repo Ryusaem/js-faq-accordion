@@ -113,6 +113,14 @@ header img {
   transform: scale(1.1);
 }
 
+.questions:focus {
+  outline: none; /* We want to remove the default blue border focus */
+}
+
+.questions:hover {
+  color: var(--color-grayish-purple);
+}
+
 /* --- FOOTER --- */
 
 .footer {
